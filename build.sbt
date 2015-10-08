@@ -26,7 +26,7 @@ libraryDependencies += "com.qifun" %% "json-stream" % "0.2.3" % HaxeJava classif
 
 libraryDependencies += "com.qifun" %% "json-stream" % "0.2.3" % HaxeCSharp classifier HaxeCSharp.name
 
-libraryDependencies += "com.qifun" %% "json-stream" % "0.2.3" % Provided
+libraryDependencies += "com.qifun" %% "json-stream" % "0.2.3" % HaxeCSharp classifier HaxeCSharp.name
 
 for (c <- AllTargetConfigurations ++ AllTestTargetConfigurations) yield {
   haxeOptions in c += (baseDirectory.value / "build.hxml").getAbsolutePath
@@ -48,6 +48,8 @@ for (c <- AllTestTargetConfigurations) yield {
 for (c <- AllTestTargetConfigurations) yield {
   haxeMacros in c += """com.dongxiguo.autoParser.AutoFormatter.BUILDER.defineMacroClass([ "com.thoughtworks.microbuilder.core.UriTemplate" ], "com.thoughtworks.microbuilder.core.UriTemplateFormatter")"""
 }
+
+libraryDependencies += "com.qifun" %% "json-stream" % "0.2.3" % Provided
 
 for (c <- Seq(CSharp, TestCSharp)) yield {
   haxeOptions in c ++= Seq("-lib", "HUGS")
